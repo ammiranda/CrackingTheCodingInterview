@@ -4,22 +4,24 @@ function returnInt(elem) {
 	return parseInt(elem, 10);
 }
 
+function stringifyList(listHead) {
+	var temp = listHead;
+	var str = "";
+
+	while (temp !== null) {
+		str += temp.data;
+		temp = temp.next;
+	}
+	
+	return str;
+}
+
 function addLinkedLists(linkedOne, linkedTwo){
 	
 	var temp1 = linkedOne.head;
 	var temp2 = linkedTwo.head;
-	var str1 = "";
-	var str2 = "";
-
-	while (temp1 !== null) {
-		str1 += temp1.data;
-		temp1 = temp1.next;
-	}
-
-	while (temp2 !== null) {
-		str2 += temp2.data;
-		temp2 = temp2.next;
-	}
+	var str1 = stringifyList(temp1);
+	var str2 = stringifyList(temp2);
 
 	var sum = parseInt(str1) + parseInt(str2);
 	var answerStr = sum.toString().split('');
